@@ -44,7 +44,7 @@ jobs:
       - name: Test image which was built
         if: success()
         run: |
-          dgoss run -t ${{ env.image_tag_versioned }}
+          dgoss run -e POSTGRES_HOST_AUTH_METHOD=trust -t ${{ env.image_tag_versioned }}
 
       - name: Push image to Docker hub
         if: success()
