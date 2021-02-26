@@ -13,7 +13,7 @@ build-fresh:
 .PHONY: build
 
 test:
-	dgoss run $(IMAGE_TAG)
+	dgoss run -e POSTGRES_HOST_AUTH_METHOD=trust -t $(IMAGE_TAG)
 .PHONY: best
 
 clean:

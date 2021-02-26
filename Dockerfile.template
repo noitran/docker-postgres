@@ -3,7 +3,7 @@ FROM %%DOCKER_IMAGE%%
 LABEL maintainer="noitran.black@gmail.com"
 
 # https://vsupalov.com/docker-env-vars/
-ARG POSTGRES_PASSWORD=postgres
-ENV POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+# ARG POSTGRES_PASSWORD=postgres
+# ENV POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
 
 COPY config/enable-extensions.sql /docker-entrypoint-initdb.d
