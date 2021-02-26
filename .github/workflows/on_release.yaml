@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        nginx_version: ['13.2']
+        postgres_version: ['13.2']
         os_type: ['alpine']
     steps:
       - uses: actions/checkout@v2
@@ -28,8 +28,8 @@ jobs:
 
       - name: Set Environment Variables
         env:
-          DOCKER_IMAGE: nginx:${{ matrix.nginx_version }}-${{ matrix.os_type }}
-          IMAGE_TAG: noitran/nginx:${{ matrix.os_type }}
+          DOCKER_IMAGE: postgres:${{ matrix.postgres_version }}-${{ matrix.os_type }}
+          IMAGE_TAG: noitran/postgres:${{ matrix.os_type }}
         run: |
           echo "docker_image=${DOCKER_IMAGE}" >> $GITHUB_ENV
           echo "image_tag_versioned=${IMAGE_TAG}-${{ steps.get_tag.outputs.tag }}" >> $GITHUB_ENV
